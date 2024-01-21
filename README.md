@@ -25,9 +25,6 @@ When we move to the next iteration \( t+1 \):
 So, for each iteration, the same model updates its parameters and switches roles from the main player (the model being updated) to the opponent (the model generating synthetic responses) for the next iteration. This cycle continues until the training process concludes after \( T \) iterations.
 
 To put it simply, after each training step, the same model takes on the role of the opponent for generating synthetic data for the next iteration, and then it is trained (as the main player) to update its parameters.
-"""
-
-Let's take an extensive look at the implementation and the considerations involved:
 
 ### Objective
 
