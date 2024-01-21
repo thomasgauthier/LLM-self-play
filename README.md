@@ -39,7 +39,7 @@ We are implementing a fine-tuning method for a pre-trained language model (LM), 
 
 2. **Iterative Training Process**: The process involves multiple iterations where the model in the main player role is trained against its own outputs (synthetic responses) generated in the opponent role from the previous iteration.
 
-3. **Low-Rank Adaptation (LoRA)**: To make this training process efficient, we utilize LoRA, a parameter-efficient fine-tuning method that adds trainable low-rank matrices to certain layers of the LM. This approach drastically reduces the number of parameters that need fine-tuning, facilitating rapid adaptation.
+3. **Low-Rank Adaptation (LoRA) (Optional, skip for full parameter training)**: To make this training process efficient, we utilize LoRA, a parameter-efficient fine-tuning method that adds trainable low-rank matrices to certain layers of the LM. This approach drastically reduces the number of parameters that need fine-tuning, facilitating rapid adaptation.
 
 4. **Adapting to New Roles**: After each training iteration, the roles switch – the updated model becomes the new opponent for the next iteration.
 
