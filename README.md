@@ -13,16 +13,17 @@ This is an implementation of the paper:
 > Harnessing the power of human-annotated data through Supervised Fine-Tuning (SFT) is pivotal for advancing Large Language Models (LLMs). In this paper, we delve into the prospect of growing a strong LLM out of a weak one without the need for acquiring additional human-annotated data. We propose a new fine-tuning method called Self-Play fIne-tuNing (SPIN), which starts from a supervised fine-tuned model. At the heart of SPIN lies a self-play mechanism, where the LLM refines its capability by playing against instances of itself. More specifically, the LLM generates its own training data from its previous iterations, refining its policy by discerning these self-generated responses from those obtained from human-annotated data. Our method progressively elevates the LLM from a nascent model to a formidable one, unlocking the full potential of human-annotated demonstration data for SFT. Theoretically, we prove that the global optimum to the training objective function of our method is achieved only when the LLM policy aligns with the target data distribution. Empirically, we evaluate our method on several benchmark datasets including the HuggingFace Open LLM Leaderboard, MT-Bench, and datasets from Big-Bench. Our results show that SPIN can significantly improve the LLM’s performance across a variety of benchmarks and even outperform models trained through direct preference optimization (DPO) supplemented with extra GPT-4 preference data. This sheds light on the promise of self-play, enabling the achievement of human-level performance in LLMs without the need for expert opponents.
 
 ## Algorithm
+## Algorithm
 
-For each iteration \( t \):
-- The **opponent** is the model with parameters \( \theta_t \) from the previous iteration.
-- The **main player** is conceptually the role of the updated model for the current iteration, which is being trained and will have parameters \( \theta_{t+1} \) after the update.
+For each iteration $t$:
+- The **opponent** is the model with parameters $\theta_t$ from the previous iteration.
+- The **main player** is conceptually the role of the updated model for the current iteration, which is being trained and will have parameters $\theta_{t+1}$ after the update.
 
-When we move to the next iteration \( t+1 \):
-- The newly updated model with parameters \( \theta_{t+1} \) becomes the opponent for this iteration.
-- The main player will again be the role of this model after it is updated in the current iteration, which will result in a new set of parameters \( \theta_{t+2} \).
+When we move to the next iteration $t+1$:
+- The newly updated model with parameters $\theta_{t+1}$ becomes the opponent for this iteration.
+- The main player will again be the role of this model after it is updated in the current iteration, which will result in a new set of parameters $\theta_{t+2}$.
 
-So, for each iteration, the same model updates its parameters and switches roles from the main player (the model being updated) to the opponent (the model generating synthetic responses) for the next iteration. This cycle continues until the training process concludes after \( T \) iterations.
+So, for each iteration, the same model updates its parameters and switches roles from the main player (the model being updated) to the opponent (the model generating synthetic responses) for the next iteration. This cycle continues until the training process concludes after $T$ iterations.
 
 To put it simply, after each training step, the same model takes on the role of the opponent for generating synthetic data for the next iteration, and then it is trained (as the main player) to update its parameters.
 
