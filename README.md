@@ -1,3 +1,7 @@
+⚠️ This implementation has not been tested and is available for educational purposes only  
+
+A more complete implementation by @lucidrains can be found [here](https://github.com/lucidrains/self-rewarding-lm-pytorch)
+
 # Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models
 
 This is an implementation of the paper: 
