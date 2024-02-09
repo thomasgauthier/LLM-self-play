@@ -1,6 +1,6 @@
-⚠️ This implementation has not been tested and is available for educational purposes only  
+⚠️ Note: this implementation has been carefully crafted to align with the algorithm presented in the paper. However, it has not been tested and may differ slightly from the official implementation. USE AT YOUR OWN RISK
 
-A more complete implementation by @lucidrains can be found [here](https://github.com/lucidrains/self-rewarding-lm-pytorch)
+The official implementation of the paper can be found [here](https://github.com/uclaml/SPIN)
 
 # Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models
 
